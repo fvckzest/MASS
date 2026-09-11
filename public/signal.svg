@@ -1,0 +1,13 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#367aa6" fill-opacity=".22"/>
+  <g stroke="#F4FBFF" stroke-opacity=".48">
+    <path d="M90 78H1110M90 642H1110M105 62V658M1095 62V658" stroke-dasharray="2 12"/>
+    <path d="M181 360H1019M600 92V628" stroke-dasharray="3 15"/>
+    <ellipse cx="600" cy="360" rx="272" ry="117" transform="rotate(-14 600 360)"/>
+    <ellipse cx="600" cy="360" rx="220" ry="78" transform="rotate(-27 600 360)"/>
+    <ellipse cx="600" cy="360" rx="158" ry="53" transform="rotate(18 600 360)"/>
+    <ellipse cx="600" cy="360" rx="103" ry="210" transform="rotate(58 600 360)"/>
+    <circle cx="600" cy="360" r="12" fill="#F4FBFF"/><circle cx="600" cy="360" r="4" fill="#183F59" stroke="none"/>
+  </g>
+  <g fill="#F4FBFF" fill-opacity=".75" font-family="monospace" font-size="11" letter-spacing="2"><text x="105" y="54">MASS / ORBITAL STUDY 001</text><text x="930" y="674">47.2529° N</text></g>
+</svg>
