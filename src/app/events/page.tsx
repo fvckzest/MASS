@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { ImageBreak, MassFooter, MassHeader } from "../_components/mass-shell";
 
 type Event = {
   promoter: string;
@@ -81,23 +81,6 @@ export const metadata: Metadata = {
   description: "Upcoming music, gatherings, workshops, and more at MASS in Tacoma.",
 };
 
-function ImageBreak({ variant }: { variant: "hero" | "signal" | "cloud" | "footer" | "archive" }) {
-  const source = variant === "signal" ? "/mass-signal-strip.png" : "/mass-cloud-field.png";
-
-  return (
-    <div className={`image-break image-break--${variant}`} aria-hidden="true">
-      <Image
-        src={source}
-        alt=""
-        width={variant === "signal" ? 2028 : 818}
-        height={variant === "signal" ? 523 : 1922}
-        className="image-break__asset"
-        priority={variant === "hero"}
-      />
-    </div>
-  );
-}
-
 function PaperButton({ href, children }: { href: string; children: string }) {
   return (
     <a className="paper-button" href={href}>
@@ -121,36 +104,10 @@ function EventImage({ position, tone, alt = "" }: { position: string; tone: Even
   );
 }
 
-function MassHeader() {
-  return (
-    <header className="secondary-header identity" aria-labelledby="mass-title">
-      <div className="identity__brand">
-        <h1 id="mass-title"><Link href="/" aria-label="MASS home">MASS</Link></h1>
-        <p><span>726 Pacific Ave</span><span className="identity__address-line">Tacoma, WA</span></p>
-      </div>
-      <nav className="identity__nav" aria-label="Primary navigation">
-        <a className="identity__nav-active" href="/events">events</a>
-        <a href="#bookings">bookings</a>
-        <a href="#space">space</a>
-        <a href="#connect">connect</a>
-      </nav>
-      <details className="mobile-menu">
-        <summary>menu <span aria-hidden="true">+</span></summary>
-        <nav className="mobile-menu__nav" aria-label="Mobile navigation">
-          <a className="identity__nav-active" href="/events">events</a>
-          <a href="#bookings">bookings</a>
-          <a href="#space">space</a>
-          <a href="#connect">connect</a>
-        </nav>
-      </details>
-    </header>
-  );
-}
-
 export default function EventsPage() {
   return (
     <main className="mass-page events-page" id="top">
-      <MassHeader />
+      <MassHeader active="events" />
 
       <ImageBreak variant="signal" />
 
@@ -211,9 +168,7 @@ export default function EventsPage() {
 
       <ImageBreak variant="footer" />
 
-      <footer className="site-footer">
-        <span>built and powered by LMNL</span>
-      </footer>
+      <MassFooter />
     </main>
   );
 }

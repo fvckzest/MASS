@@ -67,7 +67,7 @@ export default function Home() {
         </div>
         <nav className="identity__nav" aria-label="Primary navigation">
           <a href="/events">events</a>
-          <a href="#bookings">bookings</a>
+          <a href="/booking">bookings</a>
           <a href="#venue">venue</a>
           <a href="#connect">connect</a>
         </nav>
