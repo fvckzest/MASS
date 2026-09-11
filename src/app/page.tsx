@@ -66,7 +66,7 @@ export default function Home() {
           <p><span>726 Pacific Ave</span><span className="identity__address-line">Tacoma, WA</span></p>
         </div>
         <nav className="identity__nav" aria-label="Primary navigation">
-          <a href="#events">events</a>
+          <a href="/events">events</a>
           <a href="#bookings">bookings</a>
           <a href="#venue">venue</a>
           <a href="#connect">connect</a>
