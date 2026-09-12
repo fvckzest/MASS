@@ -4,34 +4,54 @@ import { MassContact } from "./_components/mass-shell";
 type Event = {
   promoter: string;
   name: string;
+  dateTime: string;
   date: string;
   time: string;
-  href: string;
+  slug: string;
 };
 
-const events: Event[] = [
+const eventCatalog: Event[] = [
   {
     promoter: "CTRL. ALT. SPIN.",
     name: "FRAMERATE",
+    dateTime: "2026-10-08",
     date: "Oct 8, 2026",
     time: "9pm - 1:30am",
-    href: "#event-framerate",
+    slug: "framerate",
   },
   {
     promoter: "fEVERSTATE",
     name: "SO FAR",
+    dateTime: "2026-10-17",
     date: "Oct 17, 2026",
     time: "9pm - 1:30am",
-    href: "#event-so-far",
+    slug: "so-far",
   },
   {
     promoter: "LMNL",
     name: "EXODUS",
-    date: "Oct 8, 2026",
+    dateTime: "2026-10-24",
+    date: "Oct 24, 2026",
     time: "9pm - 1:30am",
-    href: "#event-exodus",
+    slug: "exodus",
   },
 ];
+
+function eventDayValue(dateTime: string) {
+  const [year, month, day] = dateTime.split("-").map(Number);
+  return new Date(year, month - 1, day).getTime();
+}
+
+function getUpcomingEvents(today = new Date()) {
+  const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+
+  return eventCatalog
+    .filter((event) => eventDayValue(event.dateTime) >= startOfToday)
+    .sort((first, second) => eventDayValue(first.dateTime) - eventDayValue(second.dateTime))
+    .slice(0, 3);
+}
+
+const upcomingEvents = getUpcomingEvents();
 
 function ImageBreak({ variant }: { variant: "hero" | "signal" | "cloud" | "cloud-middle" | "footer" }) {
   const source = variant === "signal" ? "/mass-signal-strip.png" : "/mass-cloud-field.png";
@@ -90,19 +110,19 @@ export default function Home() {
       </section>
 
       <section className="events" id="events" aria-label="Upcoming events">
-        {events.map((event) => (
-          <article className="event-row" id={event.href.slice(1)} key={event.name}>
+        {upcomingEvents.map((event) => (
+          <article className="event-row" id={`event-${event.slug}`} key={event.slug}>
             <div className="event-row__details">
               <p>{event.promoter}</p>
               <h3>{event.name}</h3>
               <p className="event-row__when">
-                <time dateTime={event.date}>{event.date}</time>
+                <time dateTime={event.dateTime}>{event.date}</time>
                 <span aria-hidden="true" className="event-row__asterisk">*</span>
                 <span>{event.time}</span>
               </p>
             </div>
             <div className="event-row__action">
-              <PaperButton href={event.href}>view event</PaperButton>
+              <PaperButton href={`/events/${event.slug}`}>view event</PaperButton>
             </div>
           </article>
         ))}
