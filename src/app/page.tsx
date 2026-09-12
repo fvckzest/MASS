@@ -72,7 +72,7 @@ export default function Home() {
           <a href="/events">events</a>
           <a href="/booking">bookings</a>
           <a href="/venue">venue</a>
-          <a href="#connect">connect</a>
+          <a href="/connect">connect</a>
         </nav>
       </section>
 

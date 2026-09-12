@@ -20,7 +20,7 @@ export function ImageBreak({ variant }: { variant: ImageBreakVariant }) {
   );
 }
 
-export function MassHeader({ active }: { active: "events" | "booking" | "venue" }) {
+export function MassHeader({ active }: { active: "events" | "booking" | "venue" | "connect" }) {
   return (
     <header className="secondary-header identity" aria-labelledby="mass-title">
       <div className="identity__brand">
@@ -31,7 +31,7 @@ export function MassHeader({ active }: { active: "events" | "booking" | "venue" 
         <Link className={active === "events" ? "identity__nav-active" : undefined} href="/events">events</Link>
         <Link className={active === "booking" ? "identity__nav-active" : undefined} href="/booking">bookings</Link>
         <Link className={active === "venue" ? "identity__nav-active" : undefined} href="/venue">venue</Link>
-        <a href="#connect">connect</a>
+        <Link className={active === "connect" ? "identity__nav-active" : undefined} href="/connect">connect</Link>
       </nav>
       <details className="mobile-menu">
         <summary>menu <span aria-hidden="true">+</span></summary>
@@ -39,7 +39,7 @@ export function MassHeader({ active }: { active: "events" | "booking" | "venue" 
           <Link className={active === "events" ? "identity__nav-active" : undefined} href="/events">events</Link>
           <Link className={active === "booking" ? "identity__nav-active" : undefined} href="/booking">bookings</Link>
           <Link className={active === "venue" ? "identity__nav-active" : undefined} href="/venue">venue</Link>
-          <a href="#connect">connect</a>
+          <Link className={active === "connect" ? "identity__nav-active" : undefined} href="/connect">connect</Link>
         </nav>
       </details>
     </header>
