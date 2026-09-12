@@ -1,6 +1,8 @@
 :root {
   --page-width: 1444px;
   --page-padding: clamp(24px, 9.46vw, 136.5px);
+  --button-padding-block: clamp(10px, 3.2vw, 20px);
+  --button-padding-inline: clamp(8px, 2.4vw, 15px);
   --ink: #000;
   --paper: #fff;
 }
@@ -268,7 +270,7 @@ input {
   justify-content: space-between;
   gap: 18px;
   border: 1.5px solid var(--ink);
-  padding: 20px 15px;
+  padding: var(--button-padding-block) var(--button-padding-inline);
   color: var(--ink);
   font-size: clamp(18px, 4.43vw, 32px);
   font-weight: 400;
@@ -329,7 +331,7 @@ input {
   width: 100%;
   min-width: 0;
   justify-content: center;
-  padding: 20px 15px;
+  padding: var(--button-padding-block) var(--button-padding-inline);
   font-size: clamp(16px, 3.32vw, 24px);
 }
 
@@ -624,7 +626,7 @@ input {
 
 .event-card__action .paper-button {
   min-width: clamp(128px, 11.35vw, 164px);
-  padding: 20px 15px;
+  padding: var(--button-padding-block) var(--button-padding-inline);
   font-size: clamp(14px, 1.66vw, 24px);
 }
 
@@ -664,11 +666,54 @@ input {
   aspect-ratio: 1.62;
 }
 
+.archive-card {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.archive-card:hover,
+.archive-card:focus-visible {
+  opacity: 0.72;
+}
+
+.archive-card__details {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(3px, 0.3vw, 4px);
+  padding-top: clamp(9px, 0.8vw, 12px);
+  line-height: 1;
+}
+
+.archive-card__details p,
+.archive-card__details h3 {
+  margin: 0;
+}
+
+.archive-card__details p {
+  color: #444;
+  font-size: clamp(10px, 1.05vw, 15px);
+}
+
+.archive-card__details p:first-child {
+  color: var(--ink);
+}
+
+.archive-card__details h3 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: clamp(15px, 1.65vw, 24px);
+  font-weight: 400;
+}
+
 .archive > .paper-button {
   width: 100%;
   justify-content: center;
   margin-top: clamp(14px, 1.55vw, 22px);
-  padding: 20px 15px;
+  padding: var(--button-padding-block) var(--button-padding-inline);
   font-size: clamp(14px, 1.8vw, 26px);
 }
 
@@ -796,7 +841,7 @@ input {
   justify-content: center;
   gap: 18px;
   border: 1px solid var(--ink);
-  padding: 20px 15px;
+  padding: var(--button-padding-block) var(--button-padding-inline);
   background: var(--paper);
   color: var(--ink);
   cursor: pointer;
@@ -1054,7 +1099,7 @@ input {
   justify-content: center;
   gap: 18px;
   border: 1px solid var(--ink);
-  padding: 20px 15px;
+  padding: var(--button-padding-block) var(--button-padding-inline);
   background: var(--paper);
   color: var(--ink);
   cursor: pointer;
@@ -1236,6 +1281,291 @@ input {
   margin: 0;
   font-size: clamp(16px, 2.45vw, 35.5px);
   line-height: 1;
+}
+
+/* Event detail page ------------------------------------------------------ */
+
+.event-detail-hero {
+  padding-block: clamp(22px, 2.7vw, 39px) clamp(28px, 3.85vw, 55.5px);
+}
+
+.event-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #185f9e;
+  font-size: clamp(12px, 1.25vw, 18px);
+  line-height: 1;
+}
+
+.event-detail__back:hover,
+.event-detail__back:focus-visible {
+  opacity: 0.62;
+}
+
+.event-detail__hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+  gap: clamp(24px, 5.2vw, 75px);
+  margin-top: clamp(20px, 2.6vw, 37.5px);
+}
+
+.event-detail__copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: clamp(14px, 1.55vw, 22px);
+}
+
+.event-detail__lede,
+.event-detail__meta dt,
+.event-detail__meta dd,
+.event-detail__story p,
+.event-detail__schedule h3,
+.event-detail__schedule ol,
+.event-detail__tickets-heading p,
+.event-detail__ticket-box p,
+.event-detail__ticket-note {
+  margin: 0;
+}
+
+.event-detail__copy h2 {
+  margin: 0;
+  font-family: var(--font-asimovian), Asimovian, system-ui, sans-serif;
+  font-size: clamp(70px, 13.8vw, 199px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.8;
+}
+
+.event-detail__lede {
+  max-width: 31em;
+  margin-top: clamp(12px, 1.55vw, 22px);
+  font-size: clamp(16px, 2.15vw, 31px);
+  line-height: 1.08;
+}
+
+.event-detail__copy .paper-button {
+  margin-top: clamp(6px, 0.6vw, 9px);
+  min-width: clamp(150px, 14vw, 202px);
+  font-size: clamp(16px, 1.8vw, 26px);
+}
+
+.event-detail__art {
+  position: relative;
+  min-height: clamp(300px, 38vw, 550px);
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: #89afd0;
+}
+
+.event-detail__art::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #041a2c66, transparent 56%, #00000030);
+  content: "";
+  pointer-events: none;
+}
+
+.event-detail__art-asset {
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.72) brightness(0.92) contrast(1.08) hue-rotate(165deg);
+  transform: scale(1.18);
+}
+
+.event-detail__art-title,
+.event-detail__art-index {
+  position: absolute;
+  z-index: 1;
+  color: var(--paper);
+  text-shadow: 1px 1px 1px #00000088;
+}
+
+.event-detail__art-title {
+  right: clamp(14px, 1.9vw, 27px);
+  bottom: clamp(14px, 1.9vw, 27px);
+  font-family: var(--font-asimovian), Asimovian, system-ui, sans-serif;
+  font-size: clamp(52px, 8vw, 115px);
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+}
+
+.event-detail__art-index {
+  top: clamp(12px, 1.4vw, 20px);
+  left: clamp(12px, 1.4vw, 20px);
+  font-size: clamp(10px, 1.1vw, 16px);
+  line-height: 1;
+}
+
+.event-detail__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: clamp(26px, 3.25vw, 47px) 0 0;
+  border-top: 1px solid #252525;
+}
+
+.event-detail__meta > div {
+  min-width: 0;
+  border-bottom: 1px solid #252525;
+  padding-block: clamp(14px, 1.55vw, 22px);
+}
+
+.event-detail__meta > div + div {
+  margin-left: clamp(14px, 2.15vw, 31px);
+  padding-left: clamp(14px, 2.15vw, 31px);
+  border-left: 1px solid #252525;
+}
+
+.event-detail__meta dt {
+  color: #444;
+  font-size: clamp(10px, 1.1vw, 16px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.event-detail__meta dd {
+  padding-top: clamp(8px, 0.85vw, 12px);
+  font-size: clamp(14px, 1.65vw, 24px);
+  line-height: 1.08;
+}
+
+.event-detail__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(250px, 0.9fr);
+  gap: clamp(34px, 13.23vw, 191px);
+  padding-block: clamp(28px, 3.25vw, 47px);
+}
+
+.event-detail__story,
+.event-detail__schedule {
+  min-width: 0;
+}
+
+.event-detail__story h2,
+.event-detail__tickets h2 {
+  margin: 0;
+  font-family: var(--font-asimovian), Asimovian, system-ui, sans-serif;
+  font-size: clamp(44px, 6.55vw, 94.5px);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.event-detail__story p {
+  max-width: 28em;
+  margin-top: clamp(20px, 2.3vw, 33px);
+  font-size: clamp(16px, 1.95vw, 28px);
+  line-height: 1.1;
+}
+
+.event-detail__story p + p {
+  margin-top: clamp(12px, 1.4vw, 20px);
+}
+
+.event-detail__schedule {
+  align-self: end;
+  border-top: 1px solid var(--ink);
+}
+
+.event-detail__schedule h3 {
+  padding-block: clamp(12px, 1.35vw, 19.5px);
+  font-size: clamp(16px, 1.65vw, 24px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.event-detail__schedule ol {
+  padding: 0;
+  list-style: none;
+}
+
+.event-detail__schedule li {
+  display: grid;
+  grid-template-columns: clamp(70px, 6vw, 87px) minmax(0, 1fr);
+  gap: clamp(12px, 1.55vw, 22px);
+  border-top: 1px solid #777;
+  padding-block: clamp(10px, 1.1vw, 16px);
+  font-size: clamp(12px, 1.45vw, 21px);
+  line-height: 1;
+}
+
+.event-detail__schedule time {
+  color: #185f9e;
+}
+
+.event-detail__tickets {
+  padding-block: clamp(28px, 3.25vw, 47px);
+}
+
+.event-detail__tickets-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.event-detail__tickets-heading p {
+  margin-top: clamp(8px, 0.8vw, 12px);
+  border-left: 2px solid var(--ink);
+  padding-left: clamp(18px, 2.15vw, 31px);
+  font-size: clamp(13px, 1.65vw, 24px);
+  line-height: 1;
+  text-align: right;
+}
+
+.event-detail__ticket-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: clamp(22px, 2.6vw, 37.5px);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-block: clamp(18px, 2.15vw, 31px);
+}
+
+.event-detail__ticket-box p {
+  max-width: 30em;
+  font-size: clamp(14px, 1.65vw, 24px);
+  line-height: 1.08;
+}
+
+.event-detail__ticket-button {
+  display: inline-flex;
+  min-width: clamp(176px, 17vw, 246px);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid #777;
+  padding: var(--button-padding-block) var(--button-padding-inline);
+  background: #f4f4f4;
+  color: #555;
+  cursor: not-allowed;
+  font: inherit;
+  font-size: clamp(14px, 1.55vw, 22px);
+  line-height: 1;
+}
+
+.event-detail__ticket-note {
+  margin-top: clamp(16px, 1.9vw, 27.5px);
+  color: #444;
+  font-size: clamp(12px, 1.25vw, 18px);
+  line-height: 1;
+}
+
+.event-detail__ticket-note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.event-detail__ticket-note a:hover,
+.event-detail__ticket-note a:focus-visible {
+  opacity: 0.62;
 }
 
 @media (max-width: 760px) {
@@ -1590,6 +1920,19 @@ input {
     margin-top: 18px;
   }
 
+  .archive-card__details {
+    gap: 3px;
+    padding-top: 8px;
+  }
+
+  .archive-card__details p {
+    font-size: 9px;
+  }
+
+  .archive-card__details h3 {
+    font-size: clamp(12px, 4vw, 16px);
+  }
+
   .archive > .paper-button {
     margin-top: 12px;
     font-size: 14px;
@@ -1832,6 +2175,150 @@ input {
     min-width: 0;
     flex: 1;
     font-size: clamp(13px, 4.15vw, 18px);
+  }
+
+  .event-detail-hero {
+    padding-block: 22px 30px;
+  }
+
+  .event-detail__back {
+    font-size: 11px;
+  }
+
+  .event-detail__hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    margin-top: 20px;
+  }
+
+  .event-detail__copy {
+    gap: 14px;
+  }
+
+  .event-detail__copy h2 {
+    font-size: clamp(70px, 21vw, 110px);
+  }
+
+  .event-detail__lede {
+    max-width: 23em;
+    margin-top: 8px;
+    font-size: clamp(15px, 4.7vw, 20px);
+  }
+
+  .event-detail__copy .paper-button {
+    min-width: 148px;
+    font-size: 16px;
+  }
+
+  .event-detail__art {
+    min-height: clamp(250px, 78vw, 420px);
+  }
+
+  .event-detail__art-title {
+    font-size: clamp(48px, 16vw, 78px);
+  }
+
+  .event-detail__art-index {
+    font-size: 10px;
+  }
+
+  .event-detail__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 24px;
+  }
+
+  .event-detail__meta > div {
+    padding-block: 13px;
+  }
+
+  .event-detail__meta > div + div {
+    margin-left: 12px;
+    padding-left: 12px;
+  }
+
+  .event-detail__meta > div:last-child {
+    grid-column: 1 / -1;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .event-detail__meta dt {
+    font-size: 10px;
+  }
+
+  .event-detail__meta dd {
+    padding-top: 7px;
+    font-size: 13px;
+  }
+
+  .event-detail__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding-block: 28px;
+  }
+
+  .event-detail__story h2,
+  .event-detail__tickets h2 {
+    font-size: clamp(36px, 11.5vw, 56px);
+  }
+
+  .event-detail__story p {
+    margin-top: 18px;
+    font-size: clamp(14px, 4.15vw, 18px);
+  }
+
+  .event-detail__story p + p {
+    margin-top: 12px;
+  }
+
+  .event-detail__schedule h3 {
+    padding-block: 12px;
+    font-size: 14px;
+  }
+
+  .event-detail__schedule li {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 12px;
+    padding-block: 11px;
+    font-size: 12px;
+  }
+
+  .event-detail__tickets {
+    padding-block: 28px;
+  }
+
+  .event-detail__tickets-heading {
+    gap: 16px;
+  }
+
+  .event-detail__tickets-heading p {
+    margin-top: 6px;
+    padding-left: 12px;
+    font-size: clamp(10px, 3.1vw, 14px);
+  }
+
+  .event-detail__ticket-box {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 22px;
+    padding-block: 18px;
+  }
+
+  .event-detail__ticket-box p {
+    font-size: clamp(13px, 4.15vw, 17px);
+  }
+
+  .event-detail__ticket-button {
+    width: 100%;
+    min-width: 0;
+    font-size: 14px;
+  }
+
+  .event-detail__ticket-note {
+    margin-top: 16px;
+    font-size: 11px;
   }
 }
 
