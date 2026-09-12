@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { MassContact } from "./_components/mass-shell";
+
 type Event = {
   promoter: string;
   name: string;
@@ -68,7 +71,7 @@ export default function Home() {
         <nav className="identity__nav" aria-label="Primary navigation">
           <a href="/events">events</a>
           <a href="/booking">bookings</a>
-          <a href="#venue">venue</a>
+          <a href="/venue">venue</a>
           <a href="#connect">connect</a>
         </nav>
       </section>
@@ -142,17 +145,7 @@ export default function Home() {
 
       <ImageBreak variant="signal" />
 
-      <section className="contact split-section" id="connect" aria-label="Contact MASS">
-        <div className="contact__details">
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">ig handle</a>
-          <a href="mailto:hello@mass.place">email address</a>
-          <p>726 Pacific Ave<br />Tacoma WA</p>
-        </div>
-        <div className="subscribe">
-          <label htmlFor="subscribe-email">subscribe to MASS</label>
-          <input id="subscribe-email" type="email" placeholder="enter email" aria-label="Email address" />
-        </div>
-      </section>
+      <MassContact />
 
       <ImageBreak variant="footer" />
 
@@ -162,4 +155,3 @@ export default function Home() {
     </main>
   );
 }
-import Image from "next/image";

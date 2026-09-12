@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ImageBreak, MassFooter, MassHeader } from "../_components/mass-shell";
+import { ImageBreak, MassContact, MassFooter, MassHeader } from "../_components/mass-shell";
 
 export const metadata: Metadata = {
   title: "Bookings — MASS Tacoma",
@@ -132,13 +132,7 @@ export default function BookingPage() {
 
       <ImageBreak variant="signal" />
 
-      <section className="booking-contact" id="connect" aria-label="Contact MASS">
-        <div className="booking-contact__address">
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">ig handle</a>
-          <a href="mailto:hello@mass.place">email address</a>
-          <p>726 Pacific Ave<br />Tacoma WA</p>
-        </div>
-      </section>
+      <MassContact />
 
       <ImageBreak variant="footer" />
 

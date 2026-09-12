@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ImageBreak, MassFooter, MassHeader } from "../_components/mass-shell";
+import { ImageBreak, MassContact, MassFooter, MassHeader } from "../_components/mass-shell";
 
 type Event = {
   promoter: string;
@@ -158,13 +158,7 @@ export default function EventsPage() {
 
       <ImageBreak variant="signal" />
 
-      <section className="events-contact" id="connect" aria-label="Contact MASS">
-        <div className="events-contact__address">
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">ig handle</a>
-          <a href="mailto:hello@mass.place">email address</a>
-          <p>726 Pacific Ave<br />Tacoma WA</p>
-        </div>
-      </section>
+      <MassContact />
 
       <ImageBreak variant="footer" />
 

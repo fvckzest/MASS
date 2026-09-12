@@ -374,38 +374,75 @@ input {
   width: clamp(280px, 26.18vw, 378px);
   flex-shrink: 0;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: clamp(22px, 2.49vw, 36px);
+  gap: clamp(11px, 1.1vw, 16px);
 }
 
 .subscribe label {
-  font-size: clamp(16px, 4.15vw, 30px);
+  align-self: flex-start;
+  font-size: clamp(12px, 1.45vw, 21px);
   line-height: 1;
-  text-align: center;
+  text-transform: uppercase;
+}
+
+.subscribe__form {
+  display: flex;
+  align-items: center;
+  border-bottom: 1.5px solid var(--ink);
+  transition: border-color 160ms ease;
+}
+
+.subscribe__form:focus-within {
+  border-bottom-width: 2px;
 }
 
 .subscribe input {
+  min-width: 0;
+  flex: 1;
   width: 100%;
-  border: 2px solid var(--ink);
+  border: 0;
   border-radius: 0;
-  padding: 5px;
+  padding: 7px 0 8px;
   background: var(--paper);
   color: var(--ink);
   font: inherit;
-  font-size: clamp(18px, 4.43vw, 32px);
+  font-size: clamp(14px, 1.8vw, 26px);
   line-height: 1;
   outline: none;
 }
 
 .subscribe input::placeholder {
   color: var(--ink);
-  opacity: 1;
+  opacity: 0.52;
 }
 
 .subscribe input:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
+  outline: none;
+}
+
+.subscribe__submit {
+  display: inline-flex;
+  width: 30px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  border: 0;
+  padding: 7px 0 8px 10px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: clamp(16px, 1.9vw, 27px);
+  line-height: 1;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.subscribe__submit:hover,
+.subscribe__submit:focus-visible {
+  transform: translateX(3px);
+  opacity: 0.62;
+  outline: none;
 }
 
 .site-footer {
@@ -870,6 +907,227 @@ input {
   margin: clamp(12px, 1.7vw, 24px) 0 0;
 }
 
+/* Venue page ------------------------------------------------------------- */
+
+.venue-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(18px, 2.15vw, 31px);
+  margin-top: clamp(24px, 3.25vw, 47px);
+}
+
+.venue-detail {
+  display: grid;
+  grid-template-columns: minmax(82px, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(12px, 1.55vw, 22px);
+  border-top: 1px solid #252525;
+  padding-block: clamp(12px, 1.35vw, 19.5px);
+}
+
+.venue-detail h3,
+.venue-detail p {
+  margin: 0;
+}
+
+.venue-detail h3 {
+  font-size: clamp(12px, 1.25vw, 18px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.venue-detail p {
+  font-size: clamp(12px, 1.45vw, 21px);
+  line-height: 1.08;
+}
+
+.venue-room {
+  padding-block: clamp(28px, 3.25vw, 47px);
+}
+
+.venue-room__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.venue-room__heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-asimovian), Asimovian, system-ui, sans-serif;
+  font-size: clamp(44px, 6.55vw, 94.5px);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.venue-room__heading p {
+  margin: clamp(8px, 0.8vw, 12px) 0 0;
+  border-left: 2px solid var(--ink);
+  padding-left: clamp(18px, 2.15vw, 31px);
+  font-size: clamp(13px, 1.65vw, 24px);
+  line-height: 1;
+  text-align: right;
+}
+
+.venue-gallery {
+  margin-top: clamp(22px, 2.6vw, 37.5px);
+}
+
+.venue-gallery__viewport {
+  display: grid;
+  grid-auto-columns: clamp(210px, 30%, 340px);
+  grid-auto-flow: column;
+  gap: clamp(12px, 1.55vw, 22px);
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: #000 transparent;
+  scrollbar-width: thin;
+}
+
+.room-photo {
+  min-width: 0;
+  margin: 0;
+  scroll-margin-inline: 8px;
+  scroll-snap-align: start;
+}
+
+.room-photo__frame {
+  position: relative;
+  display: flex;
+  aspect-ratio: 1.22;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: #dceaf5;
+}
+
+.room-photo__frame::before,
+.room-photo__frame::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.room-photo__frame::before {
+  inset: 13%;
+  border: 1px solid #00000055;
+  transform: rotate(-4deg);
+}
+
+.room-photo__frame::after {
+  width: 140%;
+  height: 1px;
+  background: #00000055;
+  transform: rotate(-26deg);
+}
+
+.room-photo__frame--sound {
+  background: #c6d5e4;
+}
+
+.room-photo__frame--bar {
+  background: #d4e6d7;
+}
+
+.room-photo__frame--setup {
+  background: #e9dfcb;
+}
+
+.room-photo__placeholder,
+.room-photo__index {
+  position: relative;
+  z-index: 1;
+}
+
+.room-photo__placeholder {
+  border: 1px solid var(--ink);
+  padding: 7px 9px;
+  background: var(--paper);
+  font-size: clamp(10px, 1.05vw, 15px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.room-photo__index {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: clamp(10px, 1.05vw, 15px);
+  line-height: 1;
+}
+
+.room-photo figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 9px;
+  font-size: clamp(11px, 1.15vw, 16px);
+  line-height: 1;
+}
+
+.room-photo figcaption strong {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.room-photo figcaption span {
+  color: #444;
+  font-size: 0.9em;
+}
+
+.venue-gallery__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(7px, 0.8vw, 12px);
+  margin-top: clamp(12px, 1.35vw, 19.5px);
+}
+
+.venue-gallery__nav a {
+  display: inline-flex;
+  width: clamp(28px, 2.65vw, 38px);
+  height: clamp(28px, 2.65vw, 38px);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ink);
+  font-size: clamp(10px, 1.05vw, 15px);
+  line-height: 1;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.venue-gallery__nav a:hover,
+.venue-gallery__nav a:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.venue-gallery__nav span {
+  margin-left: auto;
+  color: #444;
+  font-size: clamp(10px, 1.05vw, 15px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.venue-room__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: clamp(22px, 2.6vw, 37.5px);
+  border-top: 1px solid var(--ink);
+  padding-top: clamp(16px, 1.9vw, 27.5px);
+}
+
+.venue-room__cta p {
+  margin: 0;
+  font-size: clamp(16px, 2.45vw, 35.5px);
+  line-height: 1;
+}
+
 @media (max-width: 760px) {
   .mass-page {
     padding-block: clamp(18px, 5vw, 32px);
@@ -1091,7 +1349,22 @@ input {
   }
 
   .subscribe {
-    gap: 18px;
+    gap: 10px;
+  }
+
+  .subscribe label {
+    font-size: 12px;
+  }
+
+  .subscribe input {
+    padding-block: 6px 7px;
+    font-size: clamp(14px, 4.15vw, 18px);
+  }
+
+  .subscribe__submit {
+    width: 26px;
+    padding-block: 6px 7px;
+    font-size: 18px;
   }
 
   .site-footer {
@@ -1286,6 +1559,88 @@ input {
 
   .booking-contact__address p {
     margin-top: 14px;
+  }
+
+  .venue-details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-top: 24px;
+  }
+
+  .venue-detail {
+    grid-template-columns: minmax(78px, 0.7fr) minmax(0, 1.3fr);
+    gap: 12px;
+    padding-block: 12px;
+  }
+
+  .venue-detail h3 {
+    font-size: 10px;
+  }
+
+  .venue-detail p {
+    font-size: 12px;
+  }
+
+  .venue-room {
+    padding-block: 28px;
+  }
+
+  .venue-room__heading {
+    gap: 16px;
+  }
+
+  .venue-room__heading h2 {
+    font-size: clamp(36px, 11.5vw, 56px);
+  }
+
+  .venue-room__heading p {
+    margin-top: 6px;
+    padding-left: 12px;
+    font-size: clamp(10px, 3.1vw, 14px);
+  }
+
+  .venue-gallery {
+    margin-top: 24px;
+  }
+
+  .venue-gallery__viewport {
+    grid-auto-columns: minmax(72%, 1fr);
+    gap: 10px;
+  }
+
+  .room-photo__placeholder,
+  .room-photo__index {
+    font-size: 10px;
+  }
+
+  .room-photo figcaption {
+    font-size: 11px;
+  }
+
+  .venue-gallery__nav {
+    margin-top: 12px;
+  }
+
+  .venue-gallery__nav a {
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+  }
+
+  .venue-gallery__nav span {
+    font-size: 10px;
+  }
+
+  .venue-room__cta {
+    align-items: flex-start;
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  .venue-room__cta p {
+    min-width: 0;
+    flex: 1;
+    font-size: clamp(13px, 4.15vw, 18px);
   }
 }
 
