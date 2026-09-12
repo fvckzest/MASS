@@ -141,7 +141,7 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <ImageBreak variant="signal" />
+      <ImageBreak variant="cloud" />
 
       <section className="archive" aria-labelledby="archive-heading">
         <div className="archive__header">
@@ -156,7 +156,7 @@ export default function EventsPage() {
         <PaperButton href="#archive">view archive</PaperButton>
       </section>
 
-      <ImageBreak variant="cloud" />
+      <ImageBreak variant="signal" />
 
       <section className="events-contact" id="connect" aria-label="Contact MASS">
         <div className="events-contact__address">

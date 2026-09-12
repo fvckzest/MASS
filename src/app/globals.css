@@ -146,11 +146,7 @@ input {
 }
 
 .identity__address-line {
-  display: inline;
-}
-
-.identity__address-line::before {
-  content: ' ';
+  display: block;
 }
 
 .identity__nav {
@@ -272,7 +268,7 @@ input {
   justify-content: space-between;
   gap: 18px;
   border: 1.5px solid var(--ink);
-  padding: 5px;
+  padding: 20px 15px;
   color: var(--ink);
   font-size: clamp(18px, 4.43vw, 32px);
   font-weight: 400;
@@ -333,7 +329,7 @@ input {
   width: 100%;
   min-width: 0;
   justify-content: center;
-  padding-block: 4px;
+  padding: 20px 15px;
   font-size: clamp(16px, 3.32vw, 24px);
 }
 
@@ -440,6 +436,11 @@ input {
 
 .events-page .secondary-header .identity__brand p {
   font-size: clamp(13px, 1.65vw, 24px);
+}
+
+.events-page .secondary-header .identity__address-line {
+  font-size: 0.667em;
+  line-height: 1.25;
 }
 
 .events-page .secondary-header .identity__nav {
@@ -586,7 +587,7 @@ input {
 
 .event-card__action .paper-button {
   min-width: clamp(128px, 11.35vw, 164px);
-  padding: 4px 5px;
+  padding: 20px 15px;
   font-size: clamp(14px, 1.66vw, 24px);
 }
 
@@ -630,7 +631,7 @@ input {
   width: 100%;
   justify-content: center;
   margin-top: clamp(14px, 1.55vw, 22px);
-  padding-block: 3px;
+  padding: 20px 15px;
   font-size: clamp(14px, 1.8vw, 26px);
 }
 
@@ -758,7 +759,7 @@ input {
   justify-content: center;
   gap: 18px;
   border: 1px solid var(--ink);
-  padding: 4px 8px;
+  padding: 20px 15px;
   background: var(--paper);
   color: var(--ink);
   cursor: pointer;
@@ -977,8 +978,9 @@ input {
     display: block;
   }
 
-  .identity__address-line::before {
-    content: none;
+  .events-page .secondary-header .identity__address-line {
+    font-size: inherit;
+    line-height: 1.15;
   }
 
   .tagline {

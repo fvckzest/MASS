@@ -116,8 +116,8 @@ export default function Home() {
           </div>
         </div>
         <div className="split-section__aside" id="bookings">
-          <p>Interested in hosting<br />an event at MASS? </p>
-          <PaperButton href="mailto:bookings@mass.place">booking</PaperButton>
+          <p>Interested in hosting?</p>
+          <PaperButton href="mailto:bookings@mass.place">get in touch</PaperButton>
         </div>
       </section>
 
@@ -135,8 +135,8 @@ export default function Home() {
           </div>
         </div>
         <div className="split-section__aside">
-          <p>visit MASS in person?</p>
-          <PaperButton href="mailto:bookings@mass.place">booking</PaperButton>
+          <p>Looking for more?</p>
+          <PaperButton href="mailto:bookings@mass.place">check it out</PaperButton>
         </div>
       </section>
 

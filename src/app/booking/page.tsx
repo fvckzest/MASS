@@ -130,7 +130,7 @@ export default function BookingPage() {
         </div>
       </section>
 
-      <ImageBreak variant="cloud" />
+      <ImageBreak variant="signal" />
 
       <section className="booking-contact" id="connect" aria-label="Contact MASS">
         <div className="booking-contact__address">
