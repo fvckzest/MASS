@@ -49,7 +49,7 @@ export function MassHeader({ active }: { active: "events" | "booking" | "venue" 
 export function MassFooter() {
   return (
     <footer className="site-footer">
-      <span>built and powered by LMNL</span>
+      <span>built and powered by <a href="https://lmnl.art">LMNL</a></span>
     </footer>
   );
 }

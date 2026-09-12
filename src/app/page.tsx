@@ -170,7 +170,7 @@ export default function Home() {
       <ImageBreak variant="footer" />
 
       <footer className="site-footer">
-        <span>built and powered by LMNL</span>
+        <span>built and powered by <a href="https://lmnl.art">LMNL</a></span>
       </footer>
     </main>
   );

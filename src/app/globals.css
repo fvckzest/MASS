@@ -458,6 +458,17 @@ input {
   line-height: 1;
 }
 
+.site-footer a {
+  transition: opacity 160ms ease;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  opacity: 0.62;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 /* Events page ------------------------------------------------------------ */
 
 .mass-page.events-page {
