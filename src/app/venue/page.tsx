@@ -27,28 +27,24 @@ const venueDetails = [
 
 const roomPhotos = [
   {
-    id: "room-photo-wide",
     index: "01",
     label: "wide room view",
     description: "orientation, scale, and light",
     tone: "room",
   },
   {
-    id: "room-photo-sound",
     index: "02",
     label: "sound + signal",
     description: "speaker position and listening floor",
     tone: "sound",
   },
   {
-    id: "room-photo-bar",
     index: "03",
     label: "bar + entry",
     description: "arrival, flow, and gathering",
     tone: "bar",
   },
   {
-    id: "room-photo-setup",
     index: "04",
     label: "event setup",
     description: "a room ready for what comes next",
@@ -98,28 +94,20 @@ export default function VenuePage() {
         </div>
 
         <div className="venue-gallery">
-          <div className="venue-gallery__viewport" aria-label="Room photo placeholders">
+          <div className="venue-gallery__strip" aria-label="Room photo placeholders">
             {roomPhotos.map((photo) => (
-              <figure className="room-photo" id={photo.id} key={photo.id}>
+              <figure className="room-photo" key={photo.index}>
                 <div className={`room-photo__frame room-photo__frame--${photo.tone}`}>
                   <span className="room-photo__placeholder">photo placeholder</span>
                   <span className="room-photo__index">{photo.index}</span>
                 </div>
-                <figcaption>
+                <figcaption className="room-photo__caption">
                   <strong>{photo.label}</strong>
                   <span>{photo.description}</span>
                 </figcaption>
               </figure>
             ))}
           </div>
-          <nav className="venue-gallery__nav" aria-label="Room photo navigation">
-            {roomPhotos.map((photo) => (
-              <a href={`#${photo.id}`} key={photo.id} aria-label={`View ${photo.label}`}>
-                {photo.index}
-              </a>
-            ))}
-            <span>scroll to explore</span>
-          </nav>
         </div>
 
         <div className="venue-room__cta">
