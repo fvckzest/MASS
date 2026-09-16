@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MassContact } from "./_components/mass-shell";
 
 type Event = {
@@ -89,10 +90,10 @@ export default function Home() {
           <p><span>726 Pacific Ave</span><span className="identity__address-line">Tacoma, WA</span></p>
         </div>
         <nav className="identity__nav" aria-label="Primary navigation">
-          <a href="/events">events</a>
-          <a href="/booking">bookings</a>
-          <a href="/venue">venue</a>
-          <a href="/connect">connect</a>
+          <Link href="/events">events</Link>
+          <Link href="/booking">bookings</Link>
+          <Link href="/venue">venue</Link>
+          <Link href="/connect">connect</Link>
         </nav>
       </section>
 
