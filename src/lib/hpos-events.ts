@@ -1,3 +1,5 @@
+import { Buffer } from "node:buffer";
+
 export type HposTicketOffering = {
   ticket_offering_id: string;
   label: string;
@@ -37,6 +39,7 @@ export type MassEvent = {
   imagePosition: string;
   imageTone: "night" | "cloud" | "room" | "mist";
   slug: string;
+  href: string;
   description?: string;
   timezone?: string;
   source: "static" | "hpos";
@@ -44,7 +47,7 @@ export type MassEvent = {
   ticketOfferings?: HposTicketOffering[];
 };
 
-const staticEventCatalog: MassEvent[] = [
+const staticEventCatalog: Omit<MassEvent, "href">[] = [
   {
     promoter: "LMNL",
     name: "EXODUS",
@@ -131,8 +134,13 @@ const staticEventCatalog: MassEvent[] = [
   },
 ];
 
-function slugify(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+function hposEventSlug(event: Pick<HposEvent, "event_id">): string {
+  if (!event.event_id) throw new Error("HP-OS Event is missing event_id");
+  return `event-${Buffer.from(event.event_id, "utf8").toString("base64url")}`;
+}
+
+export function eventHref(slug: string): string {
+  return `/events/${encodeURIComponent(slug)}`;
 }
 
 function formatDate(value: string, timezone: string): { dateTime: string; date: string } {
@@ -152,6 +160,7 @@ function mapHposEvent(event: HposEvent, index: number): MassEvent {
   const start = formatTime(event.starts_at, event.timezone);
   const end = event.ends_at ? formatTime(event.ends_at, event.timezone) : undefined;
   const venueName = event.venue?.name ?? "MASS";
+  const slug = hposEventSlug(event);
   return {
     promoter: venueName,
     name: event.title.toUpperCase(),
@@ -161,7 +170,8 @@ function mapHposEvent(event: HposEvent, index: number): MassEvent {
     time: end ? `${start} - ${end}` : start,
     imagePosition: `center ${7 + index * 13}%`,
     imageTone: index % 2 === 0 ? "cloud" : "night",
-    slug: slugify(event.title) || event.event_id,
+    slug,
+    href: eventHref(slug),
     description: event.description ?? undefined,
     timezone: event.timezone,
     source: "hpos",
@@ -171,7 +181,7 @@ function mapHposEvent(event: HposEvent, index: number): MassEvent {
 }
 
 export function staticEvents(): MassEvent[] {
-  return staticEventCatalog.map((event) => ({ ...event }));
+  return staticEventCatalog.map((event) => ({ ...event, href: eventHref(event.slug) }));
 }
 
 export async function fetchHposEvents(): Promise<MassEvent[]> {

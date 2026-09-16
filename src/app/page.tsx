@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MassContact } from "./_components/mass-shell";
+import { eventHref } from "../lib/hpos-events";
 
 type Event = {
   promoter: string;
@@ -123,7 +124,7 @@ export default function Home() {
               </p>
             </div>
             <div className="event-row__action">
-              <PaperButton href={`/events/${event.slug}`}>view event</PaperButton>
+              <PaperButton href={eventHref(event.slug)}>view event</PaperButton>
             </div>
           </article>
         ))}

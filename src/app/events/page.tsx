@@ -68,7 +68,7 @@ export default async function EventsPage() {
 
         <div className="event-list" aria-label="Upcoming events">
           {upcomingEvents.map((event) => (
-            <article className="event-card" key={`${event.promoter}-${event.name}`}>
+            <article className="event-card" key={event.href}>
               <EventImage position={event.imagePosition} tone={event.imageTone} alt="" />
               <div className="event-card__details">
                 <p className="event-card__promoter">{event.promoter}</p>
@@ -81,7 +81,7 @@ export default async function EventsPage() {
                 </p>
               </div>
               <div className="event-card__action">
-                <PaperButton href={`/events/${event.slug}`}>view event</PaperButton>
+                <PaperButton href={event.href}>view event</PaperButton>
               </div>
             </article>
           ))}
@@ -97,7 +97,7 @@ export default async function EventsPage() {
         </div>
         <div className="archive__grid">
           {pastEvents.map((event) => (
-            <Link className="archive-card" href={`/events/${event.slug}`} key={`${event.promoter}-${event.name}-${event.dateTime}`}>
+            <Link className="archive-card" href={event.href} key={event.href}>
               <EventImage position={event.imagePosition} tone={event.imageTone} />
               <div className="archive-card__details">
                 <p>{event.promoter}</p>
