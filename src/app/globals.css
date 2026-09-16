@@ -1326,7 +1326,7 @@ input {
   min-width: 0;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   gap: clamp(14px, 1.55vw, 22px);
 }
 
@@ -1345,7 +1345,7 @@ input {
 .event-detail__copy h2 {
   margin: 0;
   font-family: var(--font-asimovian), Asimovian, system-ui, sans-serif;
-  font-size: clamp(70px, 13.8vw, 199px);
+  font-size: clamp(48px, 8vw, 116px);
   font-weight: 400;
   letter-spacing: -0.045em;
   line-height: 0.8;
@@ -2207,7 +2207,7 @@ input {
   }
 
   .event-detail__copy h2 {
-    font-size: clamp(70px, 21vw, 110px);
+    font-size: clamp(52px, 16vw, 84px);
   }
 
   .event-detail__lede {
